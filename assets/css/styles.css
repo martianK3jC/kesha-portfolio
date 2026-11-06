@@ -206,18 +206,20 @@ html {
 .about-section {
   background-color: #161817;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 60px;
+  gap: 28px;
+  padding: 88px clamp(24px, 4vw, 60px) 28px;
 }
 
 .about-container {
   display: flex;
   align-items: center;
-  gap: 80px;
-  max-width: 1100px;
+  gap: 48px;
+  max-width: 1160px;
   width: 100%;
 }
 
@@ -225,8 +227,8 @@ html {
 .about-photo-wrapper {
   position: relative;
   flex-shrink: 0;
-  width: 340px;
-  height: 380px;
+  width: 220px;
+  height: 246px;
 }
 
 .blob-layer {
@@ -282,20 +284,20 @@ html {
 .about-text {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
   color: #ffffff;
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.55;
 }
 
 .about-heading {
   font-family: "Slackey", cursive;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 3vw, 2.75rem);
   color: #ffffff;
   text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
   letter-spacing: 2px;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .about-text p {
@@ -345,7 +347,7 @@ html {
 @media (max-width: 900px) {
   .about-container {
     flex-direction: column;
-    gap: 50px;
+    gap: 24px;
     text-align: center;
   }
 
@@ -354,19 +356,19 @@ html {
   }
 
   .about-photo-wrapper {
-    width: 280px;
-    height: 310px;
+    width: 180px;
+    height: 202px;
   }
 }
 
 @media (max-width: 480px) {
   .about-section {
-    padding: 60px 24px;
+    padding: 80px 24px 40px;
   }
 
   .about-photo-wrapper {
-    width: 230px;
-    height: 255px;
+    width: 160px;
+    height: 180px;
   }
 
   .about-text {
@@ -498,7 +500,8 @@ html {
 .project-frame-wrapper {
   position: relative;
   flex-shrink: 0;
-  width: min(55vw, 660px);
+  width: min(50%, 660px);
+  max-width: 100%;
   aspect-ratio: 1193 / 689;
 }
 
@@ -561,6 +564,165 @@ html {
   border-radius: 4px;
 }
 
+.layer-oltek {
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  object-fit: contain;
+  background-color: #161817;
+  border-radius: 4px;
+}
+
+/* Resume details follow the portfolio's existing typography and colors. */
+.resume-details {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 64px;
+}
+
+.resume-heading {
+  font-family: "Slackey", cursive;
+  color: #fdb137;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.resume-item {
+  border-left: 2px solid #f65936;
+  padding-left: 18px;
+  margin-bottom: 24px;
+}
+
+.resume-item, .achievement-name {
+  font-family: "Nunito", sans-serif;
+  color: #d8d5d0;
+  line-height: 1.7;
+}
+
+.resume-item h4 {
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.resume-meta, .achievement-meta {
+  font-family: "Nunito", sans-serif;
+  color: #fdb137;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.resume-item .resume-meta {
+  margin: 4px 0 8px;
+}
+
+.about-section .resume-details {
+  max-width: 1160px;
+  margin-top: 0;
+  gap: 32px;
+}
+
+.about-section .resume-heading {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+.about-section .resume-item {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  padding-left: 14px;
+}
+
+.about-section .resume-item:last-child {
+  margin-bottom: 0;
+}
+
+.about-section .resume-item h4 {
+  font-size: 0.95rem;
+}
+
+.about-section .resume-meta {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 3px 0 4px;
+}
+
+.resume-item a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #fdb137;
+  text-underline-offset: 4px;
+}
+
+.resume-item a:hover, .resume-item a:focus-visible {
+  color: #fdb137;
+}
+
+@media (min-width: 901px) and (max-height: 820px) {
+  .about-section {
+    gap: 18px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+}
+
+.more-projects {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 80px 60px;
+}
+
+.project-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 3px solid #f65936;
+  border-radius: 6px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-card h3 {
+  font-family: "Slackey", cursive;
+  color: #fdb137;
+  font-size: 1.5rem;
+}
+
+.project-card .project-tags {
+  margin-top: auto;
+}
+
+@media (max-width: 700px) {
+  .resume-details, .project-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-details {
+    gap: 24px;
+  }
+
+  .more-projects {
+    padding: 60px 24px;
+  }
+}
+
 /* --- Project info (right side) --- */
 .project-info {
   display: flex;
@@ -568,6 +730,8 @@ html {
   gap: 20px;
   flex: 1;
   max-width: 440px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .project-title {
@@ -611,6 +775,9 @@ html {
 
 .btn-outline {
   display: inline-flex;
+  justify-content: center;
+  min-height: 44px;
+  max-width: 100%;
   align-items: center;
   gap: 10px;
   font-family: "Slackey", cursive;
@@ -648,17 +815,18 @@ html {
 @media (max-width: 960px) {
   .project-entry {
     flex-direction: column;
-    gap: 50px;
-    padding: 120px 40px 80px;
-    min-height: 100vh;
+    gap: 36px;
+    padding: 100px 40px 64px;
+    min-height: auto;
     justify-content: center;
   }
 
   .project-frame-wrapper {
-    width: min(90vw, 560px);
+    width: min(100%, 560px);
   }
 
   .project-info {
+    width: 100%;
     text-align: center;
     align-items: center;
     max-width: 560px;
@@ -675,11 +843,11 @@ html {
 
 @media (max-width: 600px) {
   .project-entry {
-    padding: 110px 24px 70px;
+    padding: 88px 20px 56px;
   }
 
   .project-title {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 7vw, 2rem);
   }
 
   .project-desc {
@@ -687,7 +855,27 @@ html {
   }
 
   .project-frame-wrapper {
-    width: 92vw;
+    width: 100%;
+  }
+
+  .project-card {
+    padding: 22px 18px;
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+  }
+
+  .project-links {
+    width: 100%;
+  }
+
+  .project-links .btn-outline {
+    flex: 1 1 180px;
+  }
+
+  .project-tags {
+    gap: 10px;
   }
 }
 
@@ -715,8 +903,9 @@ html {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 80px 80px 0 80px;
+  justify-content: center;
+  gap: clamp(32px, 5vw, 80px);
+  padding: 100px clamp(24px, 4vw, 60px) 80px;
   overflow: hidden;
   position: relative;
 }
@@ -727,15 +916,15 @@ html {
   flex-direction: column;
   gap: 20px;
   max-width: 480px;
+  flex: 0 1 480px;
+  min-width: 0;
   z-index: 2;
   position: relative;
-  margin-bottom: 10%;
-  height: 100%;
 }
 
 .contact-heading {
   font-family: "Slackey", cursive;
-  font-size: 6rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
   color: #ffffff;
   text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
   line-height: 1.1;
@@ -794,9 +983,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 10px;
   width: 100%;
-  margin-bottom: 30px;
 }
 
 .form-group {
@@ -807,6 +994,7 @@ html {
 
 .form-input,
 .form-area {
+  min-width: 0;
   font-family: "Nunito", sans-serif;
   background-color: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -863,8 +1051,10 @@ html {
 
 /* --- Contact Form Wrapper --- */
 .contact-form-wrapper {
-  flex-shrink: 0;
-  width: min(45vw, 440px);
+  flex: 0 1 440px;
+  min-width: 0;
+  width: 100%;
+  max-width: 440px;
   z-index: 2;
   position: relative;
 }
@@ -889,23 +1079,25 @@ html {
 @media (max-width: 900px) {
   .contact-section {
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 100px 40px 0 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 100px 40px 64px;
     min-height: 100vh;
     position: relative;
   }
 
   .contact-content {
-    margin-bottom: 0;
+    flex: none;
+    width: 100%;
     z-index: 2;
-    max-width: 100%;
+    max-width: 480px;
   }
 
   .contact-form-wrapper {
+    flex: none;
     width: 100%;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    max-width: 480px;
   }
 
   .contact-heading {
@@ -928,7 +1120,7 @@ html {
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 90px 30px 0 30px;
+    padding: 90px 30px 64px;
   }
 
   .contact-heading {
@@ -942,7 +1134,7 @@ html {
 
 @media (max-width: 590px) {
   .contact-section {
-    padding: 80px 24px 0 24px;
+    padding: 80px 24px 56px;
   }
 
   .contact-heading {
